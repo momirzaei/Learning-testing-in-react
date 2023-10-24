@@ -5,7 +5,9 @@ export const Application = () => {
       <h2>Section 1</h2>
       <form>
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name" placeholder="Fullname">
+            Name
+          </label>
           <input type="text" id="name" />
         </div>
         <div>
@@ -13,7 +15,7 @@ export const Application = () => {
           <textarea name="bio" id="bio" />
         </div>
         <div>
-          <label htmlFor="job-location">Job location</label>
+          <label htmlFor="job-location">Name</label>
           <select id="job-location">
             <option value="">Select a country</option>
             <option value="US">United States</option>
@@ -25,8 +27,7 @@ export const Application = () => {
         </div>
         <div>
           <label>
-            <input type="checkbox" id="terms" /> I agree to the terms and
-            conditions
+            <input type="checkbox" id="terms" /> I agree
           </label>
         </div>
         <button disabled>Submit</button>

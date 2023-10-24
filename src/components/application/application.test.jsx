@@ -46,6 +46,20 @@ describe("Application", () => {
 
     const submitButtonElement = screen.getByRole("button");
     expect(submitButtonElement).toBeInTheDocument();
+
+    // if we have text with the same name we can
+    // use selector to choose item we have
+    // for example Name , can be select or input
+    const nameElement2 = screen.getByLabelText("Name", {
+      selector: "select",
+    });
+    expect(nameElement2.toBeInTheDocument);
+
+    const termsElement2 = screen.getByLabelText("I agree");
+    expect(termsElement2.toBeInTheDocument);
+
+    const nameElement3 = screen.getByPlaceholderText("Fullname");
+    expect(nameElement3).toBeInTheDocument();
   });
 });
 
