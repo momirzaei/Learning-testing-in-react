@@ -9,8 +9,34 @@ describe("Application", () => {
     // adding assertion for cheking it
     // we can find role for each item in testing-library.com\
     // https://www.w3.org/TR/html-aria/#docconformance
-    const nameElement = screen.getByRole("textbox");
+    // in the code we have 2 textbox , so we should
+    // check which textbox we want by adding second argument
+    // to getRoleBy
+    const pageHeading = screen.getByRole("heading", {
+      // name: "Job application form",
+      // use object for heading because it is h1
+      // so the level is 1
+      level: 1,
+    });
+    expect(pageHeading).toBeInTheDocument();
+
+    const sectionHeading = screen.getByRole("heading", {
+      // name: "Section 1",
+      // the as above code h2 so the level is 2
+      level: 2,
+    });
+    expect(sectionHeading).toBeInTheDocument();
+
+    const nameElement = screen.getByRole("textbox", {
+      // show item with label name we get from text box
+      name: "Name",
+    });
     expect(nameElement).toBeInTheDocument();
+    const bioElement = screen.getByRole("textbox", {
+      // show item with label name we get from text box
+      name: "Bio",
+    });
+    expect(bioElement).toBeInTheDocument();
 
     const jobLocationElement = screen.getByRole("combobox");
     expect(jobLocationElement).toBeInTheDocument();
@@ -22,3 +48,7 @@ describe("Application", () => {
     expect(submitButtonElement).toBeInTheDocument();
   });
 });
+
+// we can use these items in getByRole for finding key
+// name , level , hidden , selected , checked , pressed
+// getByRole is the most important for usage of coding
