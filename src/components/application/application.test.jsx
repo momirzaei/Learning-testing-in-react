@@ -60,6 +60,27 @@ describe("Application", () => {
 
     const nameElement3 = screen.getByPlaceholderText("Fullname");
     expect(nameElement3).toBeInTheDocument();
+
+    // p tag using getByText in testing
+    const paragraphsElement = screen.getByText("All fields are mandatory");
+    expect(paragraphsElement).toBeInTheDocument();
+
+    //value can be test by getByDisplayValue
+    const valueElement = screen.getByDisplayValue("mamad");
+    expect(valueElement).toBeInTheDocument();
+
+    // using getByAltText is used for parts thats
+    // accepts alt like img area input
+    const imageElement = screen.getByAltText("mamad is here");
+    expect(imageElement).toBeInTheDocument();
+
+    //using getByTitle for matching atr
+    const closeElement = screen.getByTitle("close");
+    expect(closeElement).toBeInTheDocument();
+
+    // getByTestId used for matching data-testid
+    const customElement = screen.getByTestId("custom-element");
+    expect(customElement).toBeInTheDocument();
   });
 });
 
