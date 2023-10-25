@@ -30,6 +30,23 @@ describe('skills' , () => {
         })
         expect(startLearningButton).not.toBeInTheDocument()
     })  
+    //using findBy and findAllBy returns Promise resolve
+    // if an element match in query and promise
+    // failed if it takes more than default value that is 
+    // 1000 ms and u can pass 3rd argument for default time value
+    // findAllBy is for a group of element 
+    // and the same as findBy
+    // cause it is promise we should 
+    // add async - await 
+    test('start learning button is eventually displayed',async() =>{
+        render(<Skills skills={skills} />)
+        const startLearningButton =await screen.findByRole('button',{
+            name:"Start Learning"
+        },{
+            timeout:2000
+        })
+        expect(startLearningButton).toBeInTheDocument()
+    })
 })
 
 // textmatch is a type regex , string or func
