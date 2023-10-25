@@ -1,4 +1,4 @@
-import { render , screen } from "@testing-library/react";
+import { logRoles, render , screen } from "@testing-library/react";
 import { Skills } from "./skills";
 import React from "react";
 
@@ -39,12 +39,17 @@ describe('skills' , () => {
     // cause it is promise we should 
     // add async - await 
     test('start learning button is eventually displayed',async() =>{
-        render(<Skills skills={skills} />)
+        // using logRoles showing all items and how we can use them for debuging
+        const view = render(<Skills skills={skills} />)
+        logRoles(view.container)
+        // using screen.debug for visualizing and formating for debug
+        // screen.debug
         const startLearningButton =await screen.findByRole('button',{
             name:"Start Learning"
         },{
             timeout:2000
         })
+        // screen.debug
         expect(startLearningButton).toBeInTheDocument()
     })
 })
@@ -57,4 +62,5 @@ describe('skills' , () => {
 // like screen.getByText((content) => content.startsWith('word))
 
 //queryBy and queryAllBy return match if not returns null and error if more than 1 match
-// second one return all query or empty array
+// second one return all query or empty array\
+// we can using testing playground for generating test for diffrent parts of our code
