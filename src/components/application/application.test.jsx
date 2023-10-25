@@ -87,3 +87,9 @@ describe("Application", () => {
 // we can use these items in getByRole for finding key
 // name , level , hidden , selected , checked , pressed
 // getByRole is the most important for usage of coding
+
+// perferance of using queries (priority)
+// getByRole , getByLabelText , getByPlaceholderText , getByText
+// getByDisplayValue , getByAltText , getByTitle and testId this last items are not common
+
+// after that we study all queris
