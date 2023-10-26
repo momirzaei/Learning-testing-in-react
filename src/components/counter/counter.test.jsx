@@ -71,4 +71,6 @@ describe("counter", () => {
   });
 });
 
-// click , dbclick , tripleclick , hover , unhover for mouse
+//mouse interaction : click , dbclick , tripleclick , hover , unhover for mouse
+// keyboard interaction : type , tab , clear , selectOptions , deselectOptions ,
+// copy , cut , paste ,
